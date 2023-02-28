@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use('/lcf/auth',authRoutes)
 
 
-app.get('https://leetcode-details.onrender.com/:username', (req, response) => {
+app.get('/:username', (req, response) => {
   uname=req.username;
   const url = "https://leetcode.com/graphql";
   const body = {
