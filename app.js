@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/:username', (req, response) => {
-  uname=req.username;
+  uname=req.params.username;
   const url = "https://leetcode.com/graphql";
   const body = {
     query: userdetails,
@@ -51,7 +51,7 @@ app.get('/:username', (req, response) => {
           else data.data.userContestRankingHistory=attendedContests
         
 
-        response.json(data)
+        response.status(200).json(data)
 
 
 
