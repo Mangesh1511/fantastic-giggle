@@ -10,7 +10,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // app.use('/lcf/auth',authRoutes)
+app.get('/',(req,res)=>{
+  console.log('No user defined please define the user')
 
+  res.status(200).json('No user defined please define the user')
+})
 
 app.get('/:username', (req, response) => {
   uname=req.params.username;
