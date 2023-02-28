@@ -6,10 +6,10 @@ const bodyParser = require('body-parser')
 const { prev_contest_details, lastsubmissions, userdetails } = require('./user_queries')
 const app = express()
 app.use(bodyParser.urlencoded({ extended: true }));
-const authRoutes=require('./routes/authenticate')
+// const authRoutes=require('./routes/authenticate')
 
 
-app.use('/lcf/auth',authRoutes)
+// app.use('/lcf/auth',authRoutes)
 
 
 app.get('lcf/leaderboard/user-details', (req, response) => {
