@@ -53,7 +53,7 @@ app.get('/leaderboard/user-details', async (req, response) => {
 })
 
 
-app.get('/:username',(req,res)=>{
+app.get('/:username',async (req,response)=>{
 
   uname=req.params.username;
   console.log(uname)
@@ -66,6 +66,25 @@ app.get('/:username',(req,res)=>{
     }
   };
 
+  try {
+    const resp= await fetch(url, {
+       method: "POST",
+       body: JSON.stringify(body),
+       headers: {
+         "Content-Type": "application/json",
+ 
+       }
+     })
+       
+     const data=await resp.json()
+ 
+     response.status(200).json(data)
+   }
+   catch (err) {
+     console.log(err)
+     response.json(err)
+   }
+ 
 
 })
 
