@@ -16,7 +16,7 @@ app.get('/',(req,res)=>{
   res.status(200).json('No user defined please define the user')
 })
 
-app.get('/:username', (req, response) => {
+app.get('/username', (req, response) => {
   uname=req.params.username;
   console.log(uname)
   const url = "https://leetcode.com/graphql";
