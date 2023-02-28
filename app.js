@@ -16,7 +16,7 @@ app.get('/',(req,res)=>{
   res.status(200).json('No user defined please define the user')
 })
 
-app.get('/username', (req, response) => {
+app.get('/leaderboard/user-details', async (req, response) => {
   uname=req.params.username;
   console.log(uname)
   const url = "https://leetcode.com/graphql";
@@ -29,7 +29,7 @@ app.get('/username', (req, response) => {
   };
 
   try {
-    fetch(url, {
+   const resp= await fetch(url, {
       method: "POST",
       body: JSON.stringify(body),
       headers: {
@@ -37,31 +37,10 @@ app.get('/username', (req, response) => {
 
       }
     })
-      .then(res => res.json())
-      .then(data => {
-        attendedContests = []
+      
+    const data=await resp.json()
 
-        if(data.data. userContestRankingHistory.length>3)
-        {
-          for(const v of data.data.userContestRankingHistory)
-          {
-            if(v.attended==true)
-            {
-              attendedContests.push(v)
-            }
-          }
-        }
-          if(attendedContests>3)
-          data.data.userContestRankingHistory=(attendedContests.reverse()).slice(0,3)
-          else data.data.userContestRankingHistory=attendedContests
-        
-
-        response.status(200).json(data)
-
-
-
-      }
-      )
+    response.status(200).json(data)
   }
   catch (err) {
     console.log(err)
@@ -74,7 +53,21 @@ app.get('/username', (req, response) => {
 })
 
 
+app.get('/:username',(req,res)=>{
 
+  uname=req.params.username;
+  console.log(uname)
+  const url = "https://leetcode.com/graphql";
+  const body = {
+    query: userdetails,
+    variables: {
+      username: `${uname}`,
+     
+    }
+  };
+
+
+})
 
 
 app.listen(5000, () => {
