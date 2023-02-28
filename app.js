@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/:username', (req, response) => {
   uname=req.params.username;
+  console.log(uname)
   const url = "https://leetcode.com/graphql";
   const body = {
     query: userdetails,
