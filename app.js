@@ -5,6 +5,7 @@ const User=require('./modules/user')
 const bodyParser = require('body-parser')
 const { prev_contest_details, lastsubmissions, userdetails } = require('./user_queries')
 const app = express()
+const fetch=require('cross-fetch')
 app.use(bodyParser.urlencoded({ extended: true }));
 // const authRoutes=require('./routes/authenticate')
 
@@ -74,7 +75,7 @@ app.get('/:username',async (req,response)=>{
      })
        
      const data=await resp.json()
- 
+     console.log(data);
      response.status(200).json(data)
    
  
