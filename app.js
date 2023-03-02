@@ -28,7 +28,7 @@ app.get('/leaderboard/user-details', async (req, response) => {
     }
   };
 
-  try {
+  
    const resp= await fetch(url, {
       method: "POST",
       body: JSON.stringify(body),
@@ -42,15 +42,12 @@ app.get('/leaderboard/user-details', async (req, response) => {
 
     response.status(200).json(data)
   }
-  catch (err) {
-    console.log(err)
-    response.json(err)
-  }
 
 
 
 
-})
+
+)
 
 
 app.get('/:username',async (req,response)=>{
