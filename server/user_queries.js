@@ -60,13 +60,18 @@ query($username:String!)
         }
     }
 
-    recentSubmissionList(username: $username, limit: 200) {
-        title
-        titleSlug
-        timestamp
-        statusDisplay
-        lang
-    }
     
 }
 `
+
+exports.SubmissionStatus=  `
+{
+    data:
+    {
+        question:
+        {
+            questionId:2294,
+            note:""
+        }
+    }
+}`

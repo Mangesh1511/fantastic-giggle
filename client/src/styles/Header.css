@@ -1,0 +1,35 @@
+.navbar
+{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: space-between;
+    /* background-color: #000000; */
+
+    color:white;
+    padding:10px 10px;
+}
+.left
+{
+    /* width:45%; */
+    display:flex;
+    padding-right: 2em;
+    flex-direction: row;
+    align-items:center;
+    /* justify-content:space-around; */
+    font-family: 'Inter', sans-serif;
+    font-size: 300;
+    
+     color: #ffffff;
+}
+.left>h3
+{
+    padding:0em 0em 0em 2em;
+font-family: 'Berlin Sans FB Demi';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+
+color: #ffffff;
+
+}
